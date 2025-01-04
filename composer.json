@@ -1,0 +1,20 @@
+{
+    "name": "nathanpakenham/corev1",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NathanPakenham1",
+            "email": "nathan@nathanpakenham.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.7",
+        "slim/php-view": "^3.4",
+        "slim/csrf": "^1.5"
+    }
+}
