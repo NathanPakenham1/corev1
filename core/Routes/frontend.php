@@ -10,16 +10,18 @@ $app->get('/', function (Request $request, Response $response) use ($render, $cs
     return $response;
 });
 
-$app->post('/submit', function (Request $request, Response $response) {
-    // CSRF token validation is automatically handled by the middleware
-    $parsedBody = $request->getParsedBody();
-
-    // Process the form data
-    // ...
-
-    $response->getBody()->write("Form submitted successfully.");
+$app->get('/about-us', function (Request $request, Response $response) use ($render, $csrf) {
+    $obj = new \Core\Controllers\Pages($render, $csrf);
+    $obj->about($request, $response);
     return $response;
 });
+
+$app->get('/contact-us', function (Request $request, Response $response) use ($render, $csrf) {
+    $obj = new \Core\Controllers\Pages($render, $csrf);
+    $obj->contact($request, $response);
+    return $response;
+});
+
 
 $errorMiddleware->setErrorHandler(HttpNotFoundException::class, function (
     Request $request,
